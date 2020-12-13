@@ -87,12 +87,6 @@ export default function MenuAppBar() {
           )}
         </Toolbar>
       </AppBar>
-      <FormGroup className={classes.loginButton}>
-        <FormControlLabel
-          control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
-          label={auth ? 'Logout' : 'Login'}
-        />
-      </FormGroup>
     </div>
   );
 }
