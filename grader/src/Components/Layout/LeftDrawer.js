@@ -18,15 +18,18 @@ import MailIcon from '@material-ui/icons/Mail';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
+
   root: {
     display: 'flex',
   },
+  
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
   },
+  
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
@@ -35,19 +38,24 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
+  
   menuButton: {
     marginRight: theme.spacing(2),
   },
+  
   hide: {
     display: 'none',
   },
+  
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
   },
+  
   drawerPaper: {
     width: drawerWidth,
   },
+  
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',
@@ -56,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
   },
+  
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
@@ -65,6 +74,7 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginLeft: -drawerWidth,
   },
+  
   contentShift: {
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
@@ -89,16 +99,19 @@ export default function PersistentDrawerLeft() {
 
   return (
     <div className={classes.root}>
+
       <CssBaseline />
+      
       <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            className={clsx(classes.menuButton, open && classes.hide)}
-          >
-            <MenuIcon />
-        </IconButton>
+        color="inherit"
+        aria-label="open drawer"
+        onClick={handleDrawerOpen}
+        edge="start"
+        className={clsx(classes.menuButton, open && classes.hide)}
+      >
+        <MenuIcon />
+      </IconButton>
+
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -113,7 +126,9 @@ export default function PersistentDrawerLeft() {
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
+
         <Divider />
+        
         <List>
           {[' Classes', '\xa0\xa0\xa0FYCSE','\xa0\xa0\xa0SYCSE','\xa0\xa0\xa0TYCSE'].map((text, index) => (
             <ListItem button key={text}>
@@ -121,7 +136,9 @@ export default function PersistentDrawerLeft() {
             </ListItem>
           ))}
         </List>
+        
         <Divider />
+        
         <List>
           {[' Settings'].map((text, index) => (
             <ListItem button key={text}>
@@ -129,6 +146,7 @@ export default function PersistentDrawerLeft() {
             </ListItem>
           ))}
         </List>
+      
       </Drawer>
      
     </div>
