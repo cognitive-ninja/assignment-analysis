@@ -20,22 +20,19 @@ const useStyles = makeStyles((theme) => ({
 
   title: {
     flexGrow: 1,
-  },
-
-  loginButton: {
-    marginLeft: theme.spacing(175), 
-  },
+  }
 }));
 
 export default function MenuAppBar() {
   const classes = useStyles();
-  const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
+  const [auth] = React.useState(true);
+  // const [setAuth] = React.useState(true);
+  // const handleChange = (event) => {
+  //   setAuth(event.target.checked);
+  // };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
