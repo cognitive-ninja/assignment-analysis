@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   
   appBar: {
+    
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -39,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
   
   menuButton: {
     marginRight: theme.spacing(2),
+    color: 'white'
   },
   
   hide: {
@@ -46,15 +48,19 @@ const useStyles = makeStyles((theme) => ({
   },
   
   drawer: {
+    color: 'white',
     width: drawerWidth,
     flexShrink: 0,
   },
   
   drawerPaper: {
+    backgroundColor: 'black',
+    color: 'white',
     width: drawerWidth,
   },
   
   drawerHeader: {
+    color: 'white',
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
@@ -64,6 +70,7 @@ const useStyles = makeStyles((theme) => ({
   },
   
   content: {
+    color: 'white',
     flexGrow: 1,
     padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
@@ -80,6 +87,10 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginLeft: 0,
   },
+  drawerIcon: {
+    color: 'white'
+  },
+
 }));
 
 export default function PersistentDrawerLeft() {
@@ -109,7 +120,7 @@ export default function PersistentDrawerLeft() {
       >
         <MenuIcon />
       </IconButton>
-
+      
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -120,12 +131,12 @@ export default function PersistentDrawerLeft() {
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerClose} className={classes.drawerIcon}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
 
-        <Divider />
+        <Divider className={classes.drawerIcon}/>
         
         <List>
           {[' Classes', '\xa0\xa0\xa0FYCSE','\xa0\xa0\xa0SYCSE','\xa0\xa0\xa0TYCSE'].map((text, index) => (
@@ -136,7 +147,6 @@ export default function PersistentDrawerLeft() {
         </List>
         
         <Divider />
-        
         <List>
           {[' Settings'].map((text, index) => (
             <ListItem button key={text}>
@@ -144,7 +154,7 @@ export default function PersistentDrawerLeft() {
             </ListItem>
           ))}
         </List>
-      
+        
       </Drawer>
      
     </div>
