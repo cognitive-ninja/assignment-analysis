@@ -49,7 +49,7 @@ export default function MenuAppBar() {
       
       <AppBar position="static">
         <Toolbar>
-          <LeftDrawer></LeftDrawer>
+          <LeftDrawer />
           <Typography variant="h6" className={classes.title}>
             Assignment Analyzer
           </Typography>
