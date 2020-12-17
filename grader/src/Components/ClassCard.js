@@ -8,17 +8,24 @@ import ClassCardMenu from './ClassCardMenu';
 const useStyles = makeStyles((theme) => ({
   root: {
     // maxWidth: 400,
-    minWidth:300,
+    minHeight: 100,
+    minWidth:350,
     marginLeft: 40,
     marginTop: 30,
     backgroundColor: 'black',
     color: 'white',
     display: 'inline-block',
+    fontFamily:'Lucida',
   },
   openButton: {
     marginTop: 15,
-    marginBottom:15
+    marginBottom:15,
+    fontFamily:'Montserrat',
   },
+  content: {
+    fontFamily: 'Montserrat',
+    fontWeight: 'Thin'
+  }
 }));
 
 export default function ClassCard() {
@@ -30,7 +37,7 @@ return (
     <Card className={classes.root}>
       <hr></hr>
       <ClassCardMenu className={classes.rightButton}/>      
-      <Typography>
+      <Typography className={classes.content}>
         Class: FYCSE<br></br>
         Class Teacher: Mr. K. V. Madhale
       </Typography>  
@@ -40,7 +47,7 @@ return (
     <Card className={classes.root}>
       <hr></hr>
       <ClassCardMenu color="white"/>
-      <Typography>
+      <Typography className={classes.content}>
         Class: SYCSE<br></br>
         Class Teacher: Dr. N. L. Gavankar
       </Typography>  
@@ -50,7 +57,7 @@ return (
     <Card className={classes.root}>
       <hr></hr>
       <ClassCardMenu color="white"/>
-      <Typography>
+      <Typography className={classes.content}>
         Class: TYCSE<br></br>
         Class Teacher: Mr. A. R. Surve
       </Typography>  

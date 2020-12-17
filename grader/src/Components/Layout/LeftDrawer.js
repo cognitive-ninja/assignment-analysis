@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
   root: {
     display: 'flex',
+    fontFamily: 'Montserrat'
   },
   
   appBar: {
@@ -54,8 +55,8 @@ const useStyles = makeStyles((theme) => ({
   },
   
   drawerPaper: {
-    backgroundColor: 'black',
-    color: 'white',
+    backgroundColor: 'rgba(255, 228, 196, 0.564)',
+    color: 'black',
     width: drawerWidth,
   },
   
@@ -88,9 +89,11 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 0,
   },
   drawerIcon: {
-    color: 'white'
+    color: 'black'
   },
-
+  drawerTitle:{
+    fontWeight: 'bold'
+  }
 }));
 
 export default function PersistentDrawerLeft() {
@@ -139,7 +142,7 @@ export default function PersistentDrawerLeft() {
         <Divider className={classes.drawerIcon}/>
         
         <List>
-          {[' Classes', '\xa0\xa0\xa0FYCSE','\xa0\xa0\xa0SYCSE','\xa0\xa0\xa0TYCSE'].map((text, index) => (
+          {[' CLASSES', '\xa0\xa0\xa0FYCSE','\xa0\xa0\xa0SYCSE','\xa0\xa0\xa0TYCSE'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemText primary={text} />
             </ListItem>
@@ -149,8 +152,8 @@ export default function PersistentDrawerLeft() {
         <Divider />
         <List>
           {[' Settings'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
+            <ListItem button key={text} >
+              <ListItemText primary="SETTINGS" className={classes.drawerTitle}/>
             </ListItem>
           ))}
         </List>

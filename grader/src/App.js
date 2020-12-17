@@ -4,12 +4,13 @@ import Navbar from './Components/Layout/Navbar';
 import ClassCard from './Components/ClassCard';
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{height: '1500'}}>
       {/* {alert("Construction In Progress")} */}
       <Navbar>
       </Navbar>
       <ClassCard>
         </ClassCard>
+       
       {/* </Navbar>       */}
     </div>
   );
