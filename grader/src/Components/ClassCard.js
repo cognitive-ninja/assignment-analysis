@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import ClassCardMenu from './ClassCardMenu';
+import Navbar from './Layout/Navbar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,7 +34,10 @@ export default function ClassCard() {
   
 
 return (
+  <>
+  <Navbar />
   <div style={{ display: "inline-block" }}>
+    
     <Card className={classes.root}>
       <hr></hr>
       <ClassCardMenu className={classes.rightButton}/>      
@@ -65,5 +69,6 @@ return (
       <hr></hr> 
     </Card>
   </div>
+</>
 );
 }
