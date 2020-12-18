@@ -10,37 +10,30 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // maxWidth: 400,
-    minHeight: 100,
-    minWidth: 350,
-    marginLeft: 40,
-    marginTop: 30,
-<<<<<<< HEAD:grader/src/Components/ClassCard.js
-    '&:hover': {
+     // maxWidth: 400,
+     minHeight: 100,
+     minWidth: 350,
+     marginLeft: 40,
+     marginTop: 30,
+     display: 'inline-block',
+     fontFamily:'Lucida',
+     '&:hover': {
       boxShadow: '7px 7px 4px rgb(75, 75, 75)'
     },
     backgroundColor: 'black',
     color: 'white',
-=======
-    backgroundColor: 'white',
-    color: 'black',
->>>>>>> 090c651844c2ff601a5939d892e64abbf73f6c6d:frontend/src/Components/ClassCard.js
-    display: 'inline-block',
-    fontFamily:'Lucida',
-    '&:hover': {
-      boxShadow: '8px 8px 3px black'
-    },
     padding: '0 2em' 
+   
   },
-  openButton: {
-    marginTop: 15,
-    marginBottom:15,
-    fontFamily:'Montserrat',
-  },
-  content: {
-    fontFamily: 'Montserrat',
-    fontWeight: 'Thin'
-  }
+   openButton: {
+     marginTop: 15,
+     marginBottom:15,
+     fontFamily:'Montserrat',
+   },
+   content: {
+     fontFamily: 'Montserrat',
+     fontWeight: 'Thin'
+   }
 }));
 
 export default function ClassCard() {

@@ -1,7 +1,7 @@
 .App {
   text-align: center;
-  /* background-color: rgba(117, 130, 138, 0.897); */
-  background-image: './images/Background.jpg';
+  background-color: rgba(255, 228, 196, 0.564);
+  /* background-image: './images/Background.jpg'; */
   background-repeat: repeat;
   height: 100vh;
   font-family:'Times New Roman', Times, serif;

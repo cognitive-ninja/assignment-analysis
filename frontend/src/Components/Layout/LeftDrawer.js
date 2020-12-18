@@ -13,7 +13,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
 
-const drawerWidth = 0;
+const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
 
