@@ -19,9 +19,11 @@ const useStyles = makeStyles((theme) => ({
 
   root: {
     display: 'flex',
+    fontFamily: 'Montserrat'
   },
   
   appBar: {
+    
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -39,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   
   menuButton: {
     marginRight: theme.spacing(2),
+    color: 'white'
   },
   
   hide: {
@@ -46,15 +49,19 @@ const useStyles = makeStyles((theme) => ({
   },
   
   drawer: {
+    color: 'white',
     width: drawerWidth,
     flexShrink: 0,
   },
   
   drawerPaper: {
+    backgroundColor: 'rgba(255, 228, 196, 0.564)',
+    color: 'black',
     width: drawerWidth,
   },
   
   drawerHeader: {
+    color: 'white',
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
@@ -64,6 +71,7 @@ const useStyles = makeStyles((theme) => ({
   },
   
   content: {
+    color: 'white',
     flexGrow: 1,
     padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
@@ -80,6 +88,12 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginLeft: 0,
   },
+  drawerIcon: {
+    color: 'black'
+  },
+  drawerTitle:{
+    fontWeight: 'bold'
+  }
 }));
 
 export default function PersistentDrawerLeft() {
@@ -109,7 +123,7 @@ export default function PersistentDrawerLeft() {
       >
         <MenuIcon />
       </IconButton>
-
+      
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -120,15 +134,15 @@ export default function PersistentDrawerLeft() {
         }}
       >
         <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerClose} className={classes.drawerIcon}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
 
-        <Divider />
+        <Divider className={classes.drawerIcon}/>
         
         <List>
-          {[' Classes', '\xa0\xa0\xa0FYCSE','\xa0\xa0\xa0SYCSE','\xa0\xa0\xa0TYCSE'].map((text, index) => (
+          {[' CLASSES', '\xa0\xa0\xa0FYCSE','\xa0\xa0\xa0SYCSE','\xa0\xa0\xa0TYCSE'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemText primary={text} />
             </ListItem>
@@ -136,15 +150,14 @@ export default function PersistentDrawerLeft() {
         </List>
         
         <Divider />
-        
         <List>
           {[' Settings'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
+            <ListItem button key={text} >
+              <ListItemText primary="SETTINGS" className={classes.drawerTitle}/>
             </ListItem>
           ))}
         </List>
-      
+        
       </Drawer>
      
     </div>
