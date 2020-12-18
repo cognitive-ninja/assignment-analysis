@@ -1,6 +1,9 @@
 const express   = require('express'),
     router      = express.Router(),
-    multer      = require('../middleware/multer-config');
+    multer      = require('../middleware/multer-config'),
+    fs          = require('fs'),
+    { TesseractWorker } = require('tesseract.js'),
+    worker      = new TesseractWorker();
 
 //Test route
 router.get('/', (req,res) => {
@@ -9,6 +12,7 @@ router.get('/', (req,res) => {
 
 //File upload route
 router.post('/upload', (req,res) => {
+    console.log("upload route was hit");
     multer.upload(req,res, err => {
         fs.readFile(`./uploads/${req.file.originalname}`, (err, data) => {
             if(err)

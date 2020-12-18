@@ -1,8 +1,6 @@
 //IMPORTS
 const express   = require('express'),
     app         = express(),
-    { TesseractWorker } = require('tesseract.js'),
-    worker      = new TesseractWorker(),
     routes      = require('./routes/router');
 
 //Configurations

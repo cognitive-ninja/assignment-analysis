@@ -1,5 +1,4 @@
-const fs    = require('fs'),
-    multer  = require('multer');
+const multer  = require('multer');
 
 //STORAGE
 const storage = multer.diskStorage({
