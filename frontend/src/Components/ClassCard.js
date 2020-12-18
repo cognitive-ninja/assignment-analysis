@@ -5,22 +5,32 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import ClassCardMenu from './ClassCardMenu';
 import Navbar from './Layout/Navbar';
+import '../App.css';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     // maxWidth: 400,
     minHeight: 100,
-    minWidth:350,
+    minWidth: 350,
     marginLeft: 40,
     marginTop: 30,
+<<<<<<< HEAD:grader/src/Components/ClassCard.js
     '&:hover': {
       boxShadow: '7px 7px 4px rgb(75, 75, 75)'
     },
     backgroundColor: 'black',
     color: 'white',
+=======
+    backgroundColor: 'white',
+    color: 'black',
+>>>>>>> 090c651844c2ff601a5939d892e64abbf73f6c6d:frontend/src/Components/ClassCard.js
     display: 'inline-block',
     fontFamily:'Lucida',
+    '&:hover': {
+      boxShadow: '8px 8px 3px black'
+    },
+    padding: '0 2em' 
   },
   openButton: {
     marginTop: 15,
@@ -52,6 +62,7 @@ return (
       <Link to='/classes/FYCSE'><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
       <hr></hr> 
     </Card>
+
     <Card className={classes.root}>
       <hr></hr>
       <ClassCardMenu />

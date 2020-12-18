@@ -1,0 +1,5 @@
+/node_modules/
+/eng.traineddata
+/uploads
+*.pdf
+env-variables.js
