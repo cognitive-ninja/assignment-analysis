@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background-color: rgba(255, 228, 196, 0.564);
+  /* background-color: rgba(117, 130, 138, 0.897); */
+  background-image: './images/Background.jpg';
   background-repeat: repeat;
   height: 100vh;
   font-family:'Times New Roman', Times, serif;
@@ -39,4 +40,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Styling for class card */
+
+classCard{
+  width: 30%;
+  max-width: 350px;
+  display: inherit;
+  padding: 0 2em;
+}
+.classCard:hover{
+ box-shadow:8px 8px 3px black; 
 }
