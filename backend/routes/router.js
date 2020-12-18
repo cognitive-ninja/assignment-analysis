@@ -1,5 +1,6 @@
-const   express     = require('express'),
-        router      = express.Router();
+const express   = require('express'),
+    router      = express.Router(),
+    multer      = require('../middleware/multer-config');
 
 //Test route
 router.get('/', (req,res) => {
@@ -8,7 +9,7 @@ router.get('/', (req,res) => {
 
 //File upload route
 router.post('/upload', (req,res) => {
-    upload(req,res, err => {
+    multer.upload(req,res, err => {
         fs.readFile(`./uploads/${req.file.originalname}`, (err, data) => {
             if(err)
                 return console.log('This is your error', err);
