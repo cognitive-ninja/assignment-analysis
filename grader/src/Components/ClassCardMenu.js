@@ -18,7 +18,7 @@ export default function ClassCardMenu(){
   const open = Boolean(anchorEl);
 
   const handleMenu = (event) => {
-    setAnchorE1(event.currentTarget)
+    setAnchorE1(event.currentTarget);
   };
 
   const handleClose = () => {
