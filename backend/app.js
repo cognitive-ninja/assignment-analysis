@@ -1,10 +1,10 @@
 //IMPORTS
-const express = require('express');
-const app = express();
-const fs = require('fs');
-const multer = require('multer');
-const { TesseractWorker } = require('tesseract.js');
-const worker = new TesseractWorker();
+const express   = require('express'),
+    app         = express(),
+    fs          = require('fs'),
+    multer      = require('multer'),
+    { TesseractWorker } = require('tesseract.js'),
+    worker      = new TesseractWorker();
 
 //STORAGE
 const storage = multer.diskStorage({
