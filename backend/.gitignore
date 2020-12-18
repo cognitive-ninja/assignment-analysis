@@ -2,3 +2,4 @@
 /eng.traineddata
 /uploads
 *.pdf
+env-variables.js
