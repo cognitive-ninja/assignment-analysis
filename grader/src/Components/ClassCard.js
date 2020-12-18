@@ -5,18 +5,23 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import ClassCardMenu from './ClassCardMenu';
 import Navbar from './Layout/Navbar';
+import '../App.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     // maxWidth: 400,
     minHeight: 100,
-    minWidth:350,
+    minWidth: 350,
     marginLeft: 40,
     marginTop: 30,
-    backgroundColor: 'black',
-    color: 'white',
+    backgroundColor: 'white',
+    color: 'black',
     display: 'inline-block',
     fontFamily:'Lucida',
+    '&:hover': {
+      boxShadow: '8px 8px 3px black'
+    },
+    padding: '0 2em' 
   },
   openButton: {
     marginTop: 15,
@@ -48,6 +53,7 @@ return (
       <Button variant="contained" size="large" color="white" className={classes.openButton}>Open</Button>
       <hr></hr> 
     </Card>
+
     <Card className={classes.root}>
       <hr></hr>
       <ClassCardMenu color="white"/>
