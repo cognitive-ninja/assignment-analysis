@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import ClassCardMenu from './ClassCardMenu';
 import Navbar from './Layout/Navbar';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,7 +38,7 @@ return (
   <>
   <Navbar />
   <div style={{ display: "inline-block" }}>
-    
+    {console.log("ClassCard Loaded")}
     <Card className={classes.root}>
       <hr></hr>
       <ClassCardMenu className={classes.rightButton}/>      
@@ -45,27 +46,27 @@ return (
         Class: FYCSE<br></br>
         Class Teacher: Mr. K. V. Madhale
       </Typography>  
-      <Button variant="contained" size="large" color="white" className={classes.openButton}>Open</Button>
+      <Link to='/classes/FYCSE'><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
       <hr></hr> 
     </Card>
     <Card className={classes.root}>
       <hr></hr>
-      <ClassCardMenu color="white"/>
+      <ClassCardMenu />
       <Typography className={classes.content}>
         Class: SYCSE<br></br>
         Class Teacher: Dr. N. L. Gavankar
       </Typography>  
-      <Button variant="contained" size="large" color="white" className={classes.openButton}>Open</Button>
+      <Link to='/classes/SYCSE'><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
       <hr></hr> 
     </Card>
     <Card className={classes.root}>
       <hr></hr>
-      <ClassCardMenu color="white"/>
+      <ClassCardMenu/>
       <Typography className={classes.content}>
         Class: TYCSE<br></br>
         Class Teacher: Mr. A. R. Surve
       </Typography>  
-      <Button variant="contained" size="large" color="white" className={classes.openButton}>Open</Button>
+      <Link to='/classes/TYCSE'><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
       <hr></hr> 
     </Card>
   </div>
