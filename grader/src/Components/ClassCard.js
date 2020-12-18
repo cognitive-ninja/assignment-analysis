@@ -14,6 +14,9 @@ const useStyles = makeStyles((theme) => ({
     minWidth:350,
     marginLeft: 40,
     marginTop: 30,
+    '&:hover': {
+      boxShadow: '7px 7px 4px rgb(75, 75, 75)'
+    },
     backgroundColor: 'black',
     color: 'white',
     display: 'inline-block',

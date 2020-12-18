@@ -13,8 +13,11 @@ const useStyles = makeStyles((theme) => ({
       minWidth:350,
       marginLeft: 40,
       marginTop: 30,
-      backgroundColor: 'rgb(99, 6, 142)',
-      color: 'white',
+      '&:hover': {
+        boxShadow: '7px 7px 4px rgb(75, 75, 75)'
+      },
+      background: 'linear-gradient(to top, rgba(280, 212, 212, 0.564), rgba(142, 152, 243, 0.564))',
+      color: 'black',
       display: 'inline-block',
       fontFamily:'Lucida',
     },
@@ -25,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     },
     content: {
       fontFamily: 'Montserrat',
-      fontWeight: 'Thin',
+      fontWeight: 'Normal',
       marginTop: 30
     }
   }));
