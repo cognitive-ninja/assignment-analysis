@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
       '&:hover': {
         boxShadow: '7px 7px 4px rgb(75, 75, 75)'
       },
-      background: 'linear-gradient(to top, rgba(280, 212, 212, 0.564), rgba(142, 152, 243, 0.564))',
+      background: 'linear-gradient(to top, rgba(280, 212, 212, 0.85), rgba(142, 152, 243, 0.85))',
       color: 'black',
       display: 'inline-block',
       fontFamily:'Lucida',

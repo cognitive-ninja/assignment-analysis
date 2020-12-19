@@ -1,11 +1,27 @@
 .App {
   text-align: center;
-  background-color: rgba(255, 228, 196, 0.564);
-  /* background-image: './images/Background.jpg'; */
-  background-repeat: repeat;
+  background-color: rgb(233,215,195);
+  background-image: url("D:/Study/Project/Mini-Project I/assignment-analysis/frontend/src/images/home_backg_2.jpg");
+  background-repeat:repeat-y;
+  background-position:top;
+  background-size:contain;
+  /* color: white; */
+  /* opacity: 40%; */
+  /* margin-top: 10px; */
+  background-position-y: 20px;
   height: 100vh;
+
   font-family:'Times New Roman', Times, serif;
 }
+/* .App::before {    
+  content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.2);
+} */
 
 .App-logo {
   height: 40vmin;
@@ -40,16 +56,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-/* Styling for class card */
-
-classCard{
-  width: 30%;
-  max-width: 350px;
-  display: inherit;
-  padding: 0 2em;
-}
-.classCard:hover{
- box-shadow:8px 8px 3px black; 
 }

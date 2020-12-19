@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
   title: {
     flexGrow: 1,
-  }
+  },
 }));
 
 export default function MenuAppBar() {
@@ -44,7 +44,6 @@ export default function MenuAppBar() {
 
   return (
     <div className={classes.root}>
-      
       <AppBar position="static">
         
         <Toolbar>
@@ -90,6 +89,7 @@ export default function MenuAppBar() {
           )}
         </Toolbar>
       </AppBar>
+      
     </div>
   );
 }
