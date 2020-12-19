@@ -33,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
    content: {
      fontFamily: 'Montserrat',
      fontWeight: 'Thin'
+   },
+   link : {
+    textDecoration: 'none'
    }
 }));
 
@@ -52,7 +55,7 @@ return (
         Class: FYCSE<br></br>
         Class Teacher: Mr. K. V. Madhale
       </Typography>  
-      <Link to='/classes/FYCSE'><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
+      <Link to='/classes/FYCSE' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
       <hr></hr> 
     </Card>
 
@@ -63,7 +66,7 @@ return (
         Class: SYCSE<br></br>
         Class Teacher: Dr. N. L. Gavankar
       </Typography>  
-      <Link to='/classes/SYCSE'><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
+      <Link to='/classes/SYCSE' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
       <hr></hr> 
     </Card>
     <Card className={classes.root}>
@@ -73,7 +76,7 @@ return (
         Class: TYCSE<br></br>
         Class Teacher: Mr. A. R. Surve
       </Typography>  
-      <Link to='/classes/TYCSE'><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
+      <Link to='/classes/TYCSE' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
       <hr></hr> 
     </Card>
   </div>
