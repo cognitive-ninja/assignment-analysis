@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import Navbar from './Layout/Navbar';
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -40,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
     const classes = useStyles();
     return (
     <>
-        <Navbar />
         <div style={{ display: "inline-block" }}>
         {console.log("SubjectCard Loaded")}
         <Card className={classes.root}>

@@ -45,7 +45,6 @@ export default function ClassCard() {
 
 return (
   <>
-  <Navbar />
   <div style={{ display: "inline-block" }}>
     {console.log("ClassCard Loaded")}
     <Card className={classes.root}>

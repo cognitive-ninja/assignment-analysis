@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from './Layout/Navbar';
 // import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -35,7 +34,6 @@ export default function PostAssignment(){
     
 return(
     <>
-        <NavBar/>
         <form style={{fontFamily: "Montserrat", fontWeight: "Normal"}}>
             <h2>Post a new assignment</h2>
             <label>

@@ -11,7 +11,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -22,22 +22,22 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Montserrat'
   },
   
-  appBar: {
+  // appBar: {
     
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
+  //   transition: theme.transitions.create(['margin', 'width'], {
+  //     easing: theme.transitions.easing.sharp,
+  //     duration: theme.transitions.duration.leavingScreen,
+  //   }),
+  // },
   
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
+  // appBarShift: {
+  //   width: `calc(100% - ${drawerWidth}px)`,
+  //   marginLeft: drawerWidth,
+  //   transition: theme.transitions.create(['margin', 'width'], {
+  //     easing: theme.transitions.easing.easeOut,
+  //     duration: theme.transitions.duration.enteringScreen,
+  //   }),
+  // },
   
   menuButton: {
     marginRight: theme.spacing(2),
@@ -70,29 +70,34 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
   },
   
-  content: {
-    color: 'white',
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: -drawerWidth,
-  },
+  // content: {
+  //   color: 'white',
+  //   flexGrow: 1,
+  //   padding: theme.spacing(3),
+  //   transition: theme.transitions.create('margin', {
+  //     easing: theme.transitions.easing.sharp,
+  //     duration: theme.transitions.duration.leavingScreen,
+  //   }),
+  //   marginLeft: -drawerWidth,
+  // },
   
-  contentShift: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
-  },
+  // contentShift: {
+  //   transition: theme.transitions.create('margin', {
+  //     easing: theme.transitions.easing.easeOut,
+  //     duration: theme.transitions.duration.enteringScreen,
+  //   }),
+  //   marginLeft: 0,
+  // },
   drawerIcon: {
     color: 'black'
   },
   drawerTitle:{
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: '18px'
+  },
+  drawerList:{
+    marginLeft: '20px',
+    fontSize: '15px'
   }
 }));
 
@@ -108,7 +113,6 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
   return (
     <div className={classes.root}>
 
@@ -142,20 +146,21 @@ export default function PersistentDrawerLeft() {
         <Divider className={classes.drawerIcon}/>
         
         <List>
-          {[' CLASSES', '\xa0\xa0\xa0FYCSE','\xa0\xa0\xa0SYCSE','\xa0\xa0\xa0TYCSE'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
+           <ListItem button key="CLASSES" component={ Link } to="/classes">
+              <ListItemText disableTypography primary="CLASSES" className={classes.drawerTitle}/>
+            </ListItem>
+          {['FYCSE','SYCSE','TYCSE'].map((text, index) => (
+            <ListItem button key={text} component={ Link } to={`/classes/${text}`}>
+              <ListItemText disableTypography className={classes.drawerList} primary={text} />
             </ListItem>
           ))}
         </List>
         
         <Divider />
         <List>
-          {[' Settings'].map((text, index) => (
-            <ListItem button key={text} >
-              <ListItemText primary="SETTINGS" className={classes.drawerTitle}/>
+            <ListItem button key="SETTINGS" component={ Link } to="/settings">
+              <ListItemText disableTypography primary="SETTINGS" className={classes.drawerTitle}/>
             </ListItem>
-          ))}
         </List>
         
       </Drawer>

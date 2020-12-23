@@ -8,10 +8,11 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import LeftDrawer from './LeftDrawer';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    // flexGrow: 0,
   },
 
   menuButton: {
@@ -19,8 +20,17 @@ const useStyles = makeStyles((theme) => ({
   },
 
   title: {
-    flexGrow: 1,
+    // flexGrow: 0.8,
+    
   },
+  linkStyle:{
+    textDecoration: "None",
+    color: 'white',
+    alignContent: 'centre',
+    fontWeight: 'bold',
+    fontFamily: 'Montserrat',
+    textShadow: '2px 2px black'
+  }
 }));
 
 export default function MenuAppBar() {
@@ -44,16 +54,16 @@ export default function MenuAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ background: '#2E3B55' }}>
         
         <Toolbar>
           <LeftDrawer/>
-          <Typography variant="h6" className={classes.title}>
-            Assignment Analyzer
+          <Typography variant="h6" style={{ alignItems: 'center', flexGrow: 0.8 }}>
+            <Link to="/" className={classes.linkStyle}> Assignment Analyzer</Link>
           </Typography>
 
           {auth && (
-            <div>
+            <div  style={{marginLeft: 'auto'}}>
 
               <IconButton
                 aria-label="account of current user"
@@ -80,9 +90,9 @@ export default function MenuAppBar() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>Create Classroom</MenuItem>
-                <MenuItem onClick={handleClose}>Join Classroom</MenuItem>
+                <MenuItem onClick={handleClose} component={ Link } to="/profile">Profile</MenuItem>
+                <MenuItem onClick={handleClose} component={ Link } to="/create">Create Classroom</MenuItem>
+                <MenuItem onClick={handleClose} component={ Link } to="/join">Join Classroom</MenuItem>
               </Menu>
 
             </div>
