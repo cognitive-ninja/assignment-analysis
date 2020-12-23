@@ -6,12 +6,13 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import SubjectCard from './Components/SubjectCard';
 import PostAssignment from './Components/PostAssignment';
 import HomeBackground from "./Components/Layout/HomeBackground";
-
+import Navbar from './Components/Layout/Navbar'
 function App() {
   return (
     <>
     <Router>
       <div className="App" style={{height: '1500'}}>
+        <Navbar/>
         <Route exact path="/" component={HomeBackground} />
         <Route exact path="/classes" component={ClassCard} />
         <Route exact path="/classes/FYCSE" component={SubjectCard}/>
