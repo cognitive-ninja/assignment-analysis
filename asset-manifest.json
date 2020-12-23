@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/assignment-analyzer/static/css/main.f7cc72be.chunk.css",
+    "main.js": "/assignment-analyzer/static/js/main.d96dc002.chunk.js",
+    "main.js.map": "/assignment-analyzer/static/js/main.d96dc002.chunk.js.map",
+    "runtime-main.js": "/assignment-analyzer/static/js/runtime-main.99f162ea.js",
+    "runtime-main.js.map": "/assignment-analyzer/static/js/runtime-main.99f162ea.js.map",
+    "static/js/2.39546994.chunk.js": "/assignment-analyzer/static/js/2.39546994.chunk.js",
+    "static/js/2.39546994.chunk.js.map": "/assignment-analyzer/static/js/2.39546994.chunk.js.map",
+    "static/js/3.7b9dcb65.chunk.js": "/assignment-analyzer/static/js/3.7b9dcb65.chunk.js",
+    "static/js/3.7b9dcb65.chunk.js.map": "/assignment-analyzer/static/js/3.7b9dcb65.chunk.js.map",
+    "index.html": "/assignment-analyzer/index.html",
+    "static/css/main.f7cc72be.chunk.css.map": "/assignment-analyzer/static/css/main.f7cc72be.chunk.css.map",
+    "static/js/2.39546994.chunk.js.LICENSE.txt": "/assignment-analyzer/static/js/2.39546994.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/assignment-analyzer/static/media/home_backg_2.888c554a.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.99f162ea.js",
+    "static/js/2.39546994.chunk.js",
+    "static/css/main.f7cc72be.chunk.css",
+    "static/js/main.d96dc002.chunk.js"
+  ]
+}
