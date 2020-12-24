@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,14 +9,18 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import LeftDrawer from './LeftDrawer';
 import { Link } from 'react-router-dom';
+import {AuthContext} from '../AuthContext';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // flexGrow: 0,
+    // flexGrow: 1,
+    
+    // justifyContent: 'flex-end'
   },
 
   menuButton: {
-    marginRight: theme.spacing(2),
+    // marginRight: theme.spacing(2),
   },
 
   title: {
@@ -30,6 +34,16 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
     fontFamily: 'Montserrat',
     textShadow: '2px 2px black'
+  },
+  authStyle:{
+    
+    marginLeft: theme.spacing(2),
+    fontFamily:'Montserrat',
+    fontWeight: '4px'
+  },
+  signIn:{
+    fontFamily:'Montserrat',
+    fontWeight: '4px'  
   }
 }));
 
@@ -38,7 +52,7 @@ export default function MenuAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  const [auth] = React.useState(true);
+  const [auth] = useContext(AuthContext);
   // const [setAuth] = React.useState(true);
   // const handleChange = (event) => {
   //   setAuth(event.target.checked);
@@ -56,11 +70,23 @@ export default function MenuAppBar() {
     <div className={classes.root}>
       <AppBar position="static" style={{ background: '#2E3B55' }}>
         
-        <Toolbar>
-          <LeftDrawer/>
+        <Toolbar style={{justifyContent: 'flex-end'}}>
+          {auth && <LeftDrawer/>}
           <Typography variant="h6" style={{ alignItems: 'center', flexGrow: 0.8 }}>
             <Link to="/" className={classes.linkStyle}> Assignment Analyzer</Link>
           </Typography>
+          
+          {!auth && 
+          <Link to='/signin' style={{ textDecoration: 'none', fontFamily:'Montserrat' }}>
+              <Button className={classes.signIn} variant="contained" color="default">Sign In</Button>
+            </Link>
+          }
+          
+          {!auth && 
+            <Link to='/signup' style={{ textDecoration: 'none'}}>
+              <Button className={classes.authStyle} variant="contained" color="default" >Sign Up</Button>
+            </Link>
+          }
 
           {auth && (
             <div  style={{marginLeft: 'auto'}}>
@@ -80,11 +106,11 @@ export default function MenuAppBar() {
                 anchorEl={anchorEl}
                 anchorOrigin={{
                   vertical: 'top',
-                  horizontal: 'right',
+                  horizontal: 'left',
                 }}
                 keepMounted
                 transformOrigin={{
-                  vertical: 'top',
+                  vertical: 'bottom',
                   horizontal: 'right',
                 }}
                 open={open}
