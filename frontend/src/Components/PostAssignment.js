@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -24,7 +23,6 @@ export default function PostAssignment(){
     function handleFileSelected(e) {
         var files = Array.from(e.target.files);
         console.log("files:", files)
-        // document.write(files[0].name);
         var para = document.createElement("p");
         var node = document.createTextNode(files[0].name);
         para.appendChild(node);
@@ -38,11 +36,6 @@ return(
             <h2>Post a new assignment</h2>
             <label>
                 <p id="uploaded">Upload here:</p>
-                {/* <input
-                onChange={handleFileSelected}
-                ref={fileField}
-                type="file" required
-                /> */}
                 <input
                     onChange={handleFileSelected}
                     ref={fileField}

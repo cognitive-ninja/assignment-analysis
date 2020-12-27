@@ -14,17 +14,12 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // flexGrow: 1,
-    
-    // justifyContent: 'flex-end'
   },
 
   menuButton: {
-    // marginRight: theme.spacing(2),
   },
 
   title: {
-    // flexGrow: 0.8,
     
   },
   linkStyle:{
@@ -53,10 +48,6 @@ export default function MenuAppBar() {
   const open = Boolean(anchorEl);
 
   const [auth] = useContext(AuthContext);
-  // const [setAuth] = React.useState(true);
-  // const handleChange = (event) => {
-  //   setAuth(event.target.checked);
-  // };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);

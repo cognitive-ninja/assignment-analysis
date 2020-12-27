@@ -1,34 +1,43 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
+// import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import backimg from '../images/new_sub_back_3.jpg';
+import { motion } from 'framer-motion';
+// import { Frame } from 'framer';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      // maxWidth: 400,
-      minHeight: 100,
-      minWidth:350,
+      minHeight: 200,
+      minWidth: 350,
       marginLeft: 40,
-      marginTop: 30,
-      '&:hover': {
-        boxShadow: '7px 7px 4px rgb(75, 75, 75)'
-      },
-      background: 'linear-gradient(to top, rgba(280, 212, 212, 0.85), rgba(142, 152, 243, 0.85))',
-      color: 'black',
+      marginTop: 40,
       display: 'inline-block',
       fontFamily:'Lucida',
-    },
+      '&:hover': {
+       boxShadow: '1px 1px 15px rgba(0, 0, 0, 0.4)'
+     },
+     backgroundImage: `url('${backimg}')`,
+     border: '7px solid #2E3B55',
+     color: 'white',
+     textShadow: '1px 1px #2E3B55',
+     borderRadius: '15px',
+     padding: '20px',
+     img: "width: 100%",
+},
     openButton: {
       marginTop: 15,
       marginBottom:15,
       fontFamily:'Montserrat',
-    },
+      backgroundColor: ' rgba(0, 0, 0, 0.6)',
+      color: 'white'
+   },
     content: {
       fontFamily: 'Montserrat',
       fontWeight: 'Normal',
-      marginTop: 30
+      marginTop: 50,
     },
     link : {
       textDecoration: 'none'
@@ -41,42 +50,42 @@ const useStyles = makeStyles((theme) => ({
     <>
         <div style={{ display: "inline-block" }}>
         {console.log("SubjectCard Loaded")}
-        <Card className={classes.root}>
-            <hr></hr>
+         <motion.Card className={classes.root}  whileTap={{ scale: 0.8 }} whileHover={{ scale : 0.8}}>
+                    
             <Typography className={classes.content}>
-            Subject: Chemistry<br></br>
-            Subject Teacher: Mr. A. A. Powar
+              Subject: Chemistry<br></br>
+              Subject Teacher: Mr. A. A. Powar
             </Typography>  
             <Link to='/classes/FYCSE/Chemistry/' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
-            <hr></hr> 
-        </Card>
-        <Card className={classes.root}>
-            <hr></hr>
+            
+        </motion.Card>
+        <motion.Card className={classes.root} whileTap={{ scale: 0.8 }} whileHover={{ scale : 0.8}}>
+            
             <Typography className={classes.content}>
             Subject: Mechanics<br></br>
             Subject Teacher: Mr. Pavan B.
             </Typography>  
             <Link to='/classes/FYCSE/Mechanics/' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
-            <hr></hr> 
-        </Card>
-        <Card className={classes.root}>
-            <hr></hr>
+             
+        </motion.Card>
+        <motion.Card className={classes.root} whileTap={{ scale: 0.8 }} whileHover={{ scale : 0.8}}>
+            
             <Typography className={classes.content}>
                 Subject: Electronics<br></br>
                 Subject Teacher: Mr. Narayan Marathe
             </Typography>  
             <Link to='/classes/FYCSE/Electronics/' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
-            <hr></hr> 
-        </Card>
-        <Card className={classes.root}>
-            <hr></hr>
+             
+        </motion.Card>
+        <motion.Card className={classes.root} whileTap={{ scale: 0.8 }} whileHover={{ scale : 0.8}}>
+            
             <Typography className={classes.content}>
                 Subject: C Programming Lab<br></br>
                 Subject Teacher: Mr. Kiran Kamble
             </Typography>  
             <Link to='/classes/FYCSE/CPL/' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
-            <hr></hr> 
-        </Card>
+             
+        </motion.Card>
         </div>
     </>
   );

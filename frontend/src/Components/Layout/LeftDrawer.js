@@ -21,24 +21,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     fontFamily: 'Montserrat'
   },
-  
-  // appBar: {
-    
-  //   transition: theme.transitions.create(['margin', 'width'], {
-  //     easing: theme.transitions.easing.sharp,
-  //     duration: theme.transitions.duration.leavingScreen,
-  //   }),
-  // },
-  
-  // appBarShift: {
-  //   width: `calc(100% - ${drawerWidth}px)`,
-  //   marginLeft: drawerWidth,
-  //   transition: theme.transitions.create(['margin', 'width'], {
-  //     easing: theme.transitions.easing.easeOut,
-  //     duration: theme.transitions.duration.enteringScreen,
-  //   }),
-  // },
-  
   menuButton: {
     marginRight: theme.spacing(2),
     color: 'white'
@@ -70,24 +52,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
   },
   
-  // content: {
-  //   color: 'white',
-  //   flexGrow: 1,
-  //   padding: theme.spacing(3),
-  //   transition: theme.transitions.create('margin', {
-  //     easing: theme.transitions.easing.sharp,
-  //     duration: theme.transitions.duration.leavingScreen,
-  //   }),
-  //   marginLeft: -drawerWidth,
-  // },
-  
-  // contentShift: {
-  //   transition: theme.transitions.create('margin', {
-  //     easing: theme.transitions.easing.easeOut,
-  //     duration: theme.transitions.duration.enteringScreen,
-  //   }),
-  //   marginLeft: 0,
-  // },
   drawerIcon: {
     color: 'black'
   },
@@ -146,11 +110,11 @@ export default function PersistentDrawerLeft() {
         <Divider className={classes.drawerIcon}/>
         
         <List>
-           <ListItem button key="CLASSES" component={ Link } to="/classes">
+           <ListItem button key="CLASSES" onClick={handleDrawerClose} component={ Link } to="/classes">
               <ListItemText disableTypography primary="CLASSES" className={classes.drawerTitle}/>
             </ListItem>
           {['FYCSE','SYCSE','TYCSE'].map((text, index) => (
-            <ListItem button key={text} component={ Link } to={`/classes/${text}`}>
+            <ListItem button key={text} component={ Link } onClick={handleDrawerClose} to={`/classes/${text}`}>
               <ListItemText disableTypography className={classes.drawerList} primary={text} />
             </ListItem>
           ))}
@@ -158,7 +122,7 @@ export default function PersistentDrawerLeft() {
         
         <Divider />
         <List>
-            <ListItem button key="SETTINGS" component={ Link } to="/settings">
+            <ListItem button key="SETTINGS" onClick={handleDrawerClose} component={ Link } to="/settings">
               <ListItemText disableTypography primary="SETTINGS" className={classes.drawerTitle}/>
             </ListItem>
         </List>
