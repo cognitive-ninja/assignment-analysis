@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     <>
         <div style={{ display: "inline-block" }}>
         {console.log("SubjectCard Loaded")}
-         <motion.Card className={classes.root}  whileTap={{ scale: 0.8 }} whileHover={{ scale : 0.8}}>
+         <motion.Card className={classes.root}  whileTap={{ scale: 0.95 }} whileHover={{ scale : 0.95}}>
                     
             <Typography className={classes.content}>
               Subject: Chemistry<br></br>
@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
             {isTeacher && <Link to='/postAssignment/classes/FYCSE/Chemistry' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>}
             {!isTeacher && <Link to='/submitAssignment/classes/FYCSE/Chemistry' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>}
         </motion.Card>
-        <motion.Card className={classes.root} whileTap={{ scale: 0.8 }} whileHover={{ scale : 0.8}}>
+        <motion.Card className={classes.root} whileTap={{ scale: 0.95 }} whileHover={{ scale : 0.95}}>
             
             <Typography className={classes.content}>
             Subject: Mechanics<br></br>
@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
             <Link to='/postAssignment/classes/FYCSE/Mechanics/' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
              
         </motion.Card>
-        <motion.Card className={classes.root} whileTap={{ scale: 0.8 }} whileHover={{ scale : 0.8}}>
+        <motion.Card className={classes.root} whileTap={{ scale: 0.95 }} whileHover={{ scale : 0.95}}>
             
             <Typography className={classes.content}>
                 Subject: Electronics<br></br>
@@ -82,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
             <Link to='/postAssignment/classes/FYCSE/Electronics/' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
              
         </motion.Card>
-        <motion.Card className={classes.root} whileTap={{ scale: 0.8 }} whileHover={{ scale : 0.8}}>
+        <motion.Card className={classes.root} whileTap={{ scale: 0.95 }} whileHover={{ scale : 0.95}}>
             
             <Typography className={classes.content}>
                 Subject: C Programming Lab<br></br>
