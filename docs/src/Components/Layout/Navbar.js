@@ -47,7 +47,7 @@ export default function MenuAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
-  const [auth] = useContext(AuthContext);
+  const [auth, setAuth] = useContext(AuthContext);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -55,6 +55,10 @@ export default function MenuAppBar() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+  const handleAuthClose = () => {
+    setAnchorEl(null);
+    setAuth(false);
   };
 
   return (
@@ -110,7 +114,7 @@ export default function MenuAppBar() {
                 <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/profile">Profile</MenuItem>
                 <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/create">Create Classroom</MenuItem>
                 <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/join">Join Classroom</MenuItem>
-                <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/">Sign Out</MenuItem>
+                <MenuItem onClick={handleAuthClose} component={ Link } to="/assignment-analysis/">Sign Out</MenuItem>
               </Menu>
 
             </div>
