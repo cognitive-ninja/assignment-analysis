@@ -110,6 +110,7 @@ export default function MenuAppBar() {
                 <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/profile">Profile</MenuItem>
                 <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/create">Create Classroom</MenuItem>
                 <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/join">Join Classroom</MenuItem>
+                <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/">Sign Out</MenuItem>
               </Menu>
 
             </div>
