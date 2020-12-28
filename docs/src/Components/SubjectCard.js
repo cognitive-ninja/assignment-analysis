@@ -61,8 +61,8 @@ const useStyles = makeStyles((theme) => ({
               Subject: Chemistry<br></br>
               Subject Teacher: Mr. A. A. Powar
             </Typography>  
-            {isTeacher && <Link to='/postAssignment/classes/FYCSE/Chemistry' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>}
-            {!isTeacher && <Link to='/submitAssignment/classes/FYCSE/Chemistry' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>}
+            {isTeacher && <Link to='/assignment-analysis/postAssignment/classes/FYCSE/Chemistry' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>}
+            {!isTeacher && <Link to='/assignment-analysis/submitAssignment/classes/FYCSE/Chemistry' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>}
         </motion.Card>
         <motion.Card className={classes.root} whileTap={{ scale: 0.95 }} whileHover={{ scale : 0.95}}>
             
@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
             Subject: Mechanics<br></br>
             Subject Teacher: Mr. Pavan B.
             </Typography>  
-            <Link to='/postAssignment/classes/FYCSE/Mechanics/' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
+            <Link to='/assignment-analysis/postAssignment/classes/FYCSE/Mechanics/' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
              
         </motion.Card>
         <motion.Card className={classes.root} whileTap={{ scale: 0.95 }} whileHover={{ scale : 0.95}}>
@@ -88,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
                 Subject: C Programming Lab<br></br>
                 Subject Teacher: Mr. Kiran Kamble
             </Typography>  
-            <Link to='/postAssignment/classes/FYCSE/CPL/' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
+            <Link to='/assignment-analysis/postAssignment/classes/FYCSE/CPL/' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
              
         </motion.Card>
         </div>

@@ -22,13 +22,13 @@ function App() {
         <Router history={history}>
           <div className="App" style={{height: '1500'}}>
             <Navbar/>
-            <Route exact path="/" component={HomeBackground} />
-            <Route exact path="/signin" component={SignIn} />
-            <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/classes" component={ClassCard} />
-            <Route exact path="/classes/FYCSE" component={SubjectCard}/>
-            <Route path="/postAssignment" component={PostAssignment}/>
-            <Route path="/submitAssignment" component={SubmitAssignment}/>
+            <Route exact path="/assignment-analysis/" component={HomeBackground} />
+            <Route exact path="/assignment-analysis/signin" component={SignIn} />
+            <Route exact path="/assignment-analysis/signup" component={SignUp} />
+            <Route exact path="/assignment-analysis/classes" component={ClassCard} />
+            <Route exact path="/assignment-analysis/classes/FYCSE" component={SubjectCard}/>
+            <Route path="/assignment-analysis/postAssignment" component={PostAssignment}/>
+            <Route path="/assignment-analysis/submitAssignment" component={SubmitAssignment}/>
           </div>
         </Router>
       </IsTeacherProvider>

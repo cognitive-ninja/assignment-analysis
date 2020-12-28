@@ -28,7 +28,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" to="/">
+      <Link color="inherit" to="/assignment-analysis/">
         Assignment Analyzer
       </Link>{' '}
       {new Date().getFullYear()}
@@ -155,7 +155,7 @@ export default function SignIn() {
                 </Link>
               </Grid>
               <Grid item> */}
-                <Link to="/signup" variant="body2" style={{textDecoration: 'none', fontSize:'15px'}}>
+                <Link to="/assignment-analysis/signup" variant="body2" style={{textDecoration: 'none', fontSize:'15px'}}>
                   Don't have an account? Sign Up
                 </Link>
               {/* </Grid>

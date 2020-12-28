@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   background-color: rgb(233,215,195);
-  background-image: url("D:/Study/Project/Mini-Project I/assignment-analysis/frontend/src/images/home_backg_2.jpg");
+  background-image: url("./images/home_backg_2.jpg");
   background-repeat:repeat-y;
   background-position:top;
   background-size:contain;

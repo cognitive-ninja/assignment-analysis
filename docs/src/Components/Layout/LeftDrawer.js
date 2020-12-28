@@ -110,11 +110,11 @@ export default function PersistentDrawerLeft() {
         <Divider className={classes.drawerIcon}/>
         
         <List>
-           <ListItem button key="CLASSES" onClick={handleDrawerClose} component={ Link } to="/classes">
+           <ListItem button key="CLASSES" onClick={handleDrawerClose} component={ Link } to="/assignment-analysis/classes">
               <ListItemText disableTypography primary="CLASSES" className={classes.drawerTitle}/>
             </ListItem>
           {['FYCSE','SYCSE','TYCSE'].map((text, index) => (
-            <ListItem button key={text} component={ Link } onClick={handleDrawerClose} to={`/classes/${text}`}>
+            <ListItem button key={text} component={ Link } onClick={handleDrawerClose} to={`/assignment-analysis/classes/${text}`}>
               <ListItemText disableTypography className={classes.drawerList} primary={text} />
             </ListItem>
           ))}
@@ -122,7 +122,7 @@ export default function PersistentDrawerLeft() {
         
         <Divider />
         <List>
-            <ListItem button key="SETTINGS" onClick={handleDrawerClose} component={ Link } to="/settings">
+            <ListItem button key="SETTINGS" onClick={handleDrawerClose} component={ Link } to="/assignment-analysis/settings">
               <ListItemText disableTypography primary="SETTINGS" className={classes.drawerTitle}/>
             </ListItem>
         </List>

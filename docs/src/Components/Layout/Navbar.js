@@ -64,17 +64,17 @@ export default function MenuAppBar() {
         <Toolbar style={{justifyContent: 'flex-end'}}>
           {auth && <LeftDrawer/>}
           <Typography variant="h6" style={{ alignItems: 'center', flexGrow: 0.8 }}>
-            <Link to="/" className={classes.linkStyle}> Assignment Analyzer</Link>
+            <Link to="/assignment-analysis/" className={classes.linkStyle}> Assignment Analyzer</Link>
           </Typography>
           
           {!auth && 
-          <Link to='/signin' style={{ textDecoration: 'none', fontFamily:'Montserrat' }}>
+          <Link to='/assignment-analysis/signin' style={{ textDecoration: 'none', fontFamily:'Montserrat' }}>
               <Button className={classes.signIn} variant="contained" color="default">Sign In</Button>
             </Link>
           }
           
           {!auth && 
-            <Link to='/signup' style={{ textDecoration: 'none'}}>
+            <Link to='/assignment-analysis/signup' style={{ textDecoration: 'none'}}>
               <Button className={classes.authStyle} variant="contained" color="default" >Sign Up</Button>
             </Link>
           }
@@ -107,9 +107,9 @@ export default function MenuAppBar() {
                 open={open}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose} component={ Link } to="/profile">Profile</MenuItem>
-                <MenuItem onClick={handleClose} component={ Link } to="/create">Create Classroom</MenuItem>
-                <MenuItem onClick={handleClose} component={ Link } to="/join">Join Classroom</MenuItem>
+                <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/profile">Profile</MenuItem>
+                <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/create">Create Classroom</MenuItem>
+                <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/join">Join Classroom</MenuItem>
               </Menu>
 
             </div>
