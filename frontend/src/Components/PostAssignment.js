@@ -11,11 +11,17 @@ export default function PostAssignment(){
             margin: theme.spacing(1),
             width: '50ch',
           },
-          fontFamily: "Montserrat",
+          fontFamily: "Montserrat",backgroundColor: 'rgb(233,215,195)',
+          
         },
         input: {
             display: 'none',
         },
+        styling:{
+            backgroundColor: 'rgb(233,215,195)',
+            height: '100vh'
+
+        }
       }));
     const classes = useStyles();
       
@@ -32,7 +38,7 @@ export default function PostAssignment(){
     
 return(
     <>
-        <form style={{fontFamily: "Montserrat", fontWeight: "Normal"}}>
+        <form className={classes.styling} style={{fontFamily: "Montserrat", fontWeight: "Normal"}}>
             <h2>Post a new assignment</h2>
             <label>
                 <p id="uploaded">Upload here:</p>
@@ -45,18 +51,18 @@ return(
                     multiple
                 />
                 <label htmlFor="contained-button-file">
-                    <Button variant="contained" color="primary" component="span">
+                    <Button variant="contained" color="primary" component="span" >
                     Upload
                     </Button>
                 </label>
             </label>
-            <p>Add title and some description about assignment:</p>
+            <p >Add title and some description about assignment:</p>
             <div  className={classes.root}>    
                 <TextField id="standard-basic" label="Title of an Assignment" required/><br></br><br></br>
                 <TextField id="standard-basic" label="Description of an Assignment" required/><br></br>
             </div>
             <br></br>
-            <Button variant="outlined" color="secondary" type="submit" value="Submit" >Submit</Button>
+            <Button variant="outlined" color="secondary" type="submit" value="Submit">Submit</Button>
             <Button variant="outlined" color="secondary" type="reset" value="Reset" >Reset</Button>
         </form>
     </>

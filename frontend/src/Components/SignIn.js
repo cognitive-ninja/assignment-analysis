@@ -3,7 +3,9 @@ import React, {useContext, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormGroup from '@material-ui/core/FormGroup';
 // import Checkbox from '@material-ui/core/Checkbox';
 // import Link from '@material-ui/core/Link';
 import { Link } from 'react-router-dom';
@@ -18,7 +20,7 @@ import backImage from '../images/home_backg_2.jpg';
 import {AuthContext} from './AuthContext';
 // import HomeBackground from './Layout/HomeBackground'
 // import { FormControl } from '@material-ui/core';
-
+import {IsTeacherContext} from './IsTeacherContext';
 import { useHistory } from "react-router-dom";
 // import history from '../App'
 
@@ -74,6 +76,8 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
   const [auth, setAuth] = useContext(AuthContext);
+  
+  const [isTeacher, setIsTeacher] = useContext(IsTeacherContext);
   // const setAuth = React.useState(false);
   const [email, setEmail]=useState('');
   const [password, setPassword]=useState('');
@@ -85,7 +89,9 @@ export default function SignIn() {
         setAuth(true);
       }
     };
-  
+  const handleChangeTeacher = (event) => {
+    setIsTeacher(event.target.checked);
+  };
   return (
     <>
     <Grid container component="main" className={classes.root}>
@@ -123,6 +129,12 @@ export default function SignIn() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <FormGroup>
+              <FormControlLabel
+                control={<Switch checked={isTeacher} onChange={handleChangeTeacher} aria-label="login switch" />}
+                label={isTeacher ? 'Sign in As a Teacher' : 'Sign in As a Student'}
+              />
+            </FormGroup>
             <Button
               type="submit"
               fullWidth
