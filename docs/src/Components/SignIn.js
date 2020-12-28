@@ -85,7 +85,7 @@ export default function SignIn() {
   const handleChange = () => {
       if(email && password)
       {
-        history.push("/");
+        history.push("/assignment-analysis/");
         setAuth(true);
       }
     };
