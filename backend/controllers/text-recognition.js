@@ -1,7 +1,7 @@
 const multer    = require('../middleware/multer-config'),
     fs          = require('fs'),
     { TesseractWorker } = require('tesseract.js'),
-    worker      = new TesseractWorker(),
+    worker      = new TesseractWorker();
 
     
     // vision      = require('@google-cloud/vision'); // Google cloud vision library.
