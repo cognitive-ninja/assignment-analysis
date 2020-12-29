@@ -26,7 +26,7 @@ app.get('/', (req,res) => {
 
 //File upload routes
 //single
-app.post('/upload', upload.single('profile'), (req, res) => {
+app.post('/upload', upload.single('myfiles'), (req, res) => {
     try {
       res.send(req.file);
     }catch(err) {
@@ -46,3 +46,7 @@ app.post('/bulk', upload.array('myfiles', 12) , (req, res) =>{
            res.send(400);
     }
 });
+
+//server
+const PORT = 5000 || process.env.PORT;
+app.listen(PORT, () => console.log(`HEY! I'm running on port ${PORT}`));
