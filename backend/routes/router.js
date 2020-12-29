@@ -4,7 +4,8 @@ const express   = require('express'),
     fs          = require('fs'),
     { TesseractWorker } = require('tesseract.js'),
     worker      = new TesseractWorker(),
-    get_similarity = require('../controllers/string-similarity');
+    get_similarity = require('../controllers/string-similarity'),
+    ClassSubmission = require('../models/ClassSubmission');
 
 
 //Test route
@@ -26,13 +27,27 @@ router.post('/upload', (req,res) => {
                 console.log(progress);
             })
             .then(result => {
-                res.send(result.text);
+                // res.send(result.text);
+                const submission = {
+                    student : req.student_id,
+                    answer  : {
+                        q_id : req.qid,
+                        text : result.text
+                    }
+                };
+                console.log(result);
+                // Store the result to database.
+                ClassSubmission.findOne({classname: req.classname},(err, foundRecord){
+                    foundRecord.submission.push(submission);
+                    });
+                });
             })
             .finally(() => worker.terminate());
         });
     });
 });
 
+//Route for getting similairty of two files.
 router.get('/getsim',(req, res)=>{
     const degree = get_similarity();
     res.send("The similarity degree :" + degree);
