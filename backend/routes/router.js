@@ -3,7 +3,9 @@ const express   = require('express'),
     multer      = require('../middleware/multer-config'),
     fs          = require('fs'),
     { TesseractWorker } = require('tesseract.js'),
-    worker      = new TesseractWorker();
+    worker      = new TesseractWorker(),
+    get_similarity = require('../controllers/string-similarity');
+
 
 //Test route
 router.get('/', (req,res) => {
@@ -29,6 +31,11 @@ router.post('/upload', (req,res) => {
             .finally(() => worker.terminate());
         });
     });
+});
+
+router.get('/getsim',(req, res)=>{
+    const degree = get_similarity();
+    res.send("The similarity degree :" + degree);
 });
 
 module.exports = router;
