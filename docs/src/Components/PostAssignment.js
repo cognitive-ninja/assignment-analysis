@@ -25,16 +25,16 @@ export default function PostAssignment(){
       }));
     const classes = useStyles();
       
-    var fileField = React.useRef(null);
-    function handleFileSelected(e) {
-        var files = Array.from(e.target.files);
-        console.log("files:", files)
-        var para = document.createElement("p");
-        var node = document.createTextNode(files[0].name);
-        para.appendChild(node);
-        var element = document.getElementById("uploaded");
-        element.appendChild(para);
-    }
+    // var fileField = React.useRef(null);
+    // function handleFileSelected(e) {
+    //     var files = Array.from(e.target.files);
+    //     console.log("files:", files)
+    //     var para = document.createElement("p");
+    //     var node = document.createTextNode(files[0].name);
+    //     para.appendChild(node);
+    //     var element = document.getElementById("uploaded");
+    //     element.appendChild(para);
+    // }
     
 return(
     <>
@@ -43,18 +43,18 @@ return(
             <label>
                 <p id="uploaded">Upload here:</p>
                 <input
-                    onChange={handleFileSelected}
-                    ref={fileField}
+                    // onChange={handleFileSelected}
+                    // ref={fileField}
                     type="file"
-                    className={classes.input}
+                    // className={classes.input}
                     id="contained-button-file"
                     multiple
                 />
-                <label htmlFor="contained-button-file">
+                {/* <label htmlFor="contained-button-file">
                     <Button variant="contained" color="primary" component="span" >
                     Upload
                     </Button>
-                </label>
+                </label> */}
             </label>
             <p >Add title and some description about assignment:</p>
             <div  className={classes.root}>    
