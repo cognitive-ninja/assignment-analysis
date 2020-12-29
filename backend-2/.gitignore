@@ -1,0 +1,6 @@
+/node_modules/
+/eng.traineddata
+/uploads
+*.pdf
+env-variables.js
+Assignment Analyzer-b9054b280ca8.json
