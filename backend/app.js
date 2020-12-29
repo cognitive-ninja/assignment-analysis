@@ -61,7 +61,44 @@ app.post('/uploaddouble', upload.fields(
         try{
             const image_1 = req.files.image1[0];
             const image_2 = req.files.image2[0];
-            res.send(req.files);
+
+            var s1="",s2="";
+            //extracting text from image_1
+            fs.readFile(`./uploads/${image_1.originalname}`, (err, data) => {
+                if(err)
+                    return console.log('This is your error', err);
+                
+                worker
+                .recognize(data, "eng", {tessjs_create_pdf: "1"})
+                .progress(progress => {
+                    console.log(progress);
+                })
+                .then(result => {
+                    res.send(result.text);
+                    s1 = result.text;
+                })
+                .finally(() => worker.terminate());
+            });
+
+            //extracting text from image_2
+            // fs.readFile(`./uploads/${image_2.originalname}`, (err, data) => {
+            //     if(err)
+            //         return console.log('This is your error', err);
+                
+            //     worker
+            //     .recognize(data, "eng", {tessjs_create_pdf: "1"})
+            //     .progress(progress => {
+            //         console.log(progress);
+            //     })
+            //     .then(result => {
+            //         // res.send(result.text);
+            //         s2 = result.text;
+            //     })
+            //     .finally(() => worker.terminate());
+            // });
+
+            
+            // res.send(final_string);
         }
         catch(error) {
             console.log(error);
