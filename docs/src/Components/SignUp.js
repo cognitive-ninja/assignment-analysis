@@ -77,7 +77,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign Up
           </Typography>
-          <form className={classes.form} method="get" action="/assignment-analysis/signin">
+          <form className={classes.form} method="post" action="/assignment-analysis/signin">
           <div className="d-flex flex-row">
             <div className="p-2 flex-fill">
             <TextField
