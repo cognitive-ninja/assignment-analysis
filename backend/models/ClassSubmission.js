@@ -5,23 +5,21 @@ const SumbmissionSchema = mongoose.Schema({
         Type    : mongoose.Schema.Types.ObjectId,
         ref     : Class
     },
-    assignment : [{
-        assignment_id : {
-            Type        : Number,
-            required    : true,
-            unique      : true
+    assignment_id : {
+        Type        : Number,
+        required    : true,
+        unique      : true
+    },
+    submission : [{
+        student : {
+            Type    : mongoose.Schema.Types.ObjectId,
+            ref     : User
         },
-        submission : [{
-            student : {
-                Type    : mongoose.Schema.Types.ObjectId,
-                ref     : User
-            },
-            answer : [{
-                q_id : Number,
-                text : String
-            }]
+        answer : [{
+            q_id : Number,
+            text : String
         }]
-    }],
+    }]
 });
 
 module.exports = mongoose.model("classSubmission", SumbmissionSchema);

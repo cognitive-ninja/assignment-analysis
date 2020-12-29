@@ -15,10 +15,17 @@ const ClassSchema = mongoose.Schema({
         type    : mongoose.Schema.Types.ObjectId,
         ref     : "User"
     }],
-    classSubmission : {
-        Type : mongoose.Schema.Types.ObjectId,
-        ref  : ClassSubmission
-    }
+    classSubmission : [{
+        assignment_no : {
+            Type        : Number,
+            required    : true,
+            unique      : true
+        },
+        submission    : {
+            Type : mongoose.Schema.Types.ObjectId,
+            ref  : ClassSubmission
+        }
+    }]
 });
 
 module.exports = mongoose.model("Class", ClassSchema);
