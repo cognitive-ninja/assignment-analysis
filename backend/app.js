@@ -25,26 +25,48 @@ app.get('/', (req,res) => {
 });
 
 //File upload routes
-//single
-app.post('/upload', upload.single('myfiles'), (req, res) => {
-    try {
-      res.send(req.file);
-    }catch(err) {
-      res.send(400);
-    }
+//single file
+app.post('/uploadsingle', upload.single('myfiles'), 
+    (req, res) => {
+        try {
+        res.send(req.file);
+        }catch(err) {
+        res.send(400);
+        }
 });
 
-//multiple
-app.post('/bulk', upload.array('myfiles', 12) , (req, res) =>{
-    try {
-        var final_string = "";
-        req.files.forEach(item => {
-            
-        })
-    } catch(error) {
-          console.log(error);
-           res.send(400);
-    }
+//multiple files
+app.post('/uploadmultiple', upload.array('myfiles', 12) , 
+    (req, res) => {
+        try {
+            res.send(req.files)
+        } catch(error) {
+            console.log(error);
+            res.send(400);
+        }
+});
+
+//2 files simultaneous
+app.post('/uploaddouble', upload.fields(
+    [
+        {
+            name: "image1",
+            maxCount: 1
+        },
+        {
+            name: "image2",
+            maxCount: 1
+        }
+    ]), (req,res) => {
+        try{
+            const image_1 = req.files.image1[0];
+            const image_2 = req.files.image2[0];
+            res.send(req.files);
+        }
+        catch(error) {
+            console.log(error);
+            res.send(400);
+        }
 });
 
 //server
