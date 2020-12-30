@@ -9477,6 +9477,11 @@ react-scripts@4.0.1:
   optionalDependencies:
     fsevents "^2.1.3"
 
+react-text-typist@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-text-typist/-/react-text-typist-1.0.5.tgz#cfe39f66e13ddc48ddf8e8b897a95f171dc5a68b"
+  integrity sha512-NbG1TkVZnE3CoGPug7BzyejuPbBlo1X0pHL1QCvCRsft2iHE5vt1iyVFOsdSzFQr1Y1h2SJHFqkjabhIIxDMTw==
+
 react-transition-group@^4.4.0:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.1.tgz#63868f9325a38ea5ee9535d828327f85773345c9"
