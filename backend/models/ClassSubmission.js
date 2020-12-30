@@ -1,20 +1,13 @@
 const mongoose = require('mongoose');
 
 const SumbmissionSchema = mongoose.Schema({
-    class : {
-        Type    : mongoose.Schema.Types.ObjectId,
-        ref     : Class
-    },
-    assignment_id : {
-        Type        : Number,
-        required    : true,
-        unique      : true
-    },
+    // class_id : {
+    //     Type    : mongoose.Schema.Types.ObjectId,
+    //     ref     : "Class"
+    // },
+    assignment_id :Number,
     submission : [{
-        student : {
-            Type    : mongoose.Schema.Types.ObjectId,
-            ref     : User
-        },
+        student : String,
         answer : [{
             q_id : Number,
             text : String
@@ -22,4 +15,4 @@ const SumbmissionSchema = mongoose.Schema({
     }]
 });
 
-module.exports = mongoose.model("classSubmission", SumbmissionSchema);
+module.exports = mongoose.model("ClassSubmission", SumbmissionSchema);
