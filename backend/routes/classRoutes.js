@@ -32,5 +32,7 @@ router.delete('/class', (req, res)=>{
                 });
             return res.status(200);
         });
-    })
+    });
 });
+
+module.exports = router;
