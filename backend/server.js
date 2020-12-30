@@ -3,6 +3,8 @@ const express   = require('express'),
     app         = express(),
     mongoose    = require('mongoose'),
     routes      = require('./routes/router'),
+    userRoutes  = require('./routes/userRoutes'),
+    classRoutes = require('./routes/classRoutes'),
     variables   = require('./env-variables');
 
 //Configurations:
@@ -10,8 +12,10 @@ const express   = require('express'),
 app.set("view engine","ejs");
 //Routing
 app.use(routes);
+app.use(userRoutes);
+app.use(classRoutes);
 //Database
-mongoose.connect("mongodb+srv://TeamBakchodi:" +variables.mongoDBPassword +"@assignment-analyzer.nlazz.mongodb.net/<dbname>?retryWrites=true&w=majority", {useUnifiedTopology:true, useNewUrlParser:true});
+mongoose.connect("mongodb+srv://TeamBakchodi:" +variables.mongoDBPassword +"@assignment-analyzer.nlazz.mongodb.net/Assignment-Analyzer?retryWrites=true&w=majority", {useUnifiedTopology:true, useNewUrlParser:true});
 
 
 
