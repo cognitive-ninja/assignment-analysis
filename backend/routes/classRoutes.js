@@ -1,6 +1,7 @@
 const express   = require('express'),
     router      = express.Router(),
-    Class       = require('../models/Class');
+    Class       = require('../models/Class'),
+    ClassSubmission = require('../models/ClassSubmission');
 
 // 1. Route for creating class database.
 router.post('/class', (req, res)=> {
@@ -19,11 +20,17 @@ router.post('/class', (req, res)=> {
 
 // 4. Route for deleting class.
 router.delete('/class', (req, res)=>{
-    Class.findOneAndDelete({classname: req.classname},(err)=>{
+    ClassSubmission.findOneAndDelete({classname: req.classname},(err)=>{
         if(err)
-            return res.status(500).send({
-                message: err.message || "Couldn't delete class from database"
-            });
-        return res.status(200);
-    });
+                return res.status(500).send({
+                    message: err.message || "Couldn't delete class submissions from database"
+                });
+        Class.findOneAndDelete({classname: req.classname},(err)=>{
+            if(err)
+                return res.status(500).send({
+                    message: err.message || "Couldn't delete class from database"
+                });
+            return res.status(200);
+        });
+    })
 });
