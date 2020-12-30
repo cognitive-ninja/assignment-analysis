@@ -37,9 +37,8 @@ router.post('/upload', (req,res) => {
                 };
                 console.log(result);
                 // Store the result to database.
-                ClassSubmission.findOne({classname: req.classname},(err, foundRecord){
+                ClassSubmission.findOne({classname: req.classname},(err, foundRecord)=>{
                     foundRecord.submission.push(submission);
-                    });
                 });
             })
             .finally(() => worker.terminate());
