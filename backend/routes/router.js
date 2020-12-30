@@ -8,12 +8,12 @@ const express   = require('express'),
     ClassSubmission = require('../models/ClassSubmission');
 
 
-//Test route
+//Test route. Landing page
 router.get('/', (req,res) => {
     res.render('index');
 });
 
-//File upload route
+//File upload route. Multer uploads file. fs retrieves file, tesseract extracts text. text is stored in mongodb.
 router.post('/upload', (req,res) => {
     console.log("upload route was hit");
     multer.upload(req,res, err => {
@@ -46,7 +46,7 @@ router.post('/upload', (req,res) => {
     });
 });
 
-//Route for getting similairty of two files.
+//Route for getting similairty of two files.// Not required for actual application.
 router.get('/getsim',(req, res)=>{
     const degree = get_similarity();
     res.send("The similarity degree :" + degree);
