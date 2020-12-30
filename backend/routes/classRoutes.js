@@ -10,7 +10,7 @@ router.post('/class', (req, res)=> {
             return res.status(500).send({
                 message: err.message || "Couldn't create database for user"
             });
-        return res.status(200);
+        return res.status(200).send({message:createdClass});
     });
 });
 
