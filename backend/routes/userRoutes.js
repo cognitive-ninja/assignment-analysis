@@ -4,7 +4,7 @@ const express   = require('express'),
 
 // 1. Route for creating new user in datebase.
 router.post('/user', (req, res)=>{
-    User.create(req.user, (err, createdUser)=>{
+    User.create(req.body.user, (err, createdUser)=>{
         if(err)
             return res.status(500).send({
                 message: err.message || "Couldn't create database for user"
