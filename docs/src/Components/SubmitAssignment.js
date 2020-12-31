@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import axios from 'axios';
+// import axios from 'axios';
 
 export default function SubmitAssignment(){
     
@@ -25,7 +25,7 @@ export default function SubmitAssignment(){
         }
       }));
       
-      const onSubmit= (e) => {
+    //   const onSubmit= (e) => {
         // e.preventDefault();
         // const obj = {
         //     hello: "world"
@@ -36,20 +36,20 @@ export default function SubmitAssignment(){
         //   });
         //   const data = new FormData();
         //   data.append("document", blob);
-        var data = new FormData();
-        var formfile = document.querySelector('#file');
-        console.log(formfile);
-        data.append("formfile", formfile.files[0]);
-        console.log(data);
-        axios.post("http://localhost:5000/uploads", data, {  headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        }).then(function (response) {
-            console.log(response);
-        }).catch(function (response) {
-            console.log(response);
-        });
-};
+//         var data = new FormData();
+//         var formfile = document.querySelector('#file');
+//         console.log(formfile);
+//         data.append("formfile", formfile.files[0]);
+//         console.log(data);
+//         axios.post("http://localhost:5000/uploads", data, {  headers: {
+//             'Content-Type': 'multipart/form-data'
+//           }
+//         }).then(function (response) {
+//             console.log(response);
+//         }).catch(function (response) {
+//             console.log(response);
+//         });
+// };
     // var fileField = React.useRef(null);
     // function handleFileSelected(e) {
     //     var files = Array.from(e.target.files);
@@ -65,7 +65,7 @@ export default function SubmitAssignment(){
       
       return(
         <>
-            <form onSubmit={onSubmit} className={classes.styling} style={{fontFamily: "Montserrat", fontWeight: "Normal"}}
+            <form action="http://localhost:5000/upload" method="post" className={classes.styling} style={{fontFamily: "Montserrat", fontWeight: "Normal"}}
                         encType="multipart/form-data">
                 <h2>Submit an Assignment</h2>
                 <label>

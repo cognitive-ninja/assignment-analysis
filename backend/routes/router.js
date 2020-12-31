@@ -15,6 +15,7 @@ router.get('/', (req,res) => {
 
 //File upload route. Multer uploads file. fs retrieves file, tesseract extracts text. text is stored in mongodb.
 router.post('/upload', (req,res) => {
+    // console.log(req);
     console.log("upload route was hit");
     multer.upload(req,res, err => {
         console.log(req.file);
@@ -29,6 +30,7 @@ router.post('/upload', (req,res) => {
             })
             .then(result => {
                 res.send(result.text);
+                
                 // const submission = {
                 //     student : req.student_id,
                 //     answer  : {
