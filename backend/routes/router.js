@@ -17,6 +17,7 @@ router.get('/', (req,res) => {
 router.post('/upload', (req,res) => {
     console.log("upload route was hit");
     multer.upload(req,res, err => {
+        console.log(req.file);
         fs.readFile(`./uploads/${req.file.originalname}`, (err, data) => {
             if(err)
                 return console.log('This is your error', err);
@@ -27,19 +28,19 @@ router.post('/upload', (req,res) => {
                 console.log(progress);
             })
             .then(result => {
-                // res.send(result.text);
-                const submission = {
-                    student : req.student_id,
-                    answer  : {
-                        q_id : req.qid,
-                        text : result.text
-                    }
-                };
+                res.send(result.text);
+                // const submission = {
+                //     student : req.student_id,
+                //     answer  : {
+                //         q_id : req.qid,
+                //         text : result.text
+                //     }
+                // };
                 console.log(result);
                 // Store the result to database.
-                ClassSubmission.findOne({classname: req.classname},(err, foundRecord)=>{
-                    foundRecord.submission.push(submission);
-                });
+                // ClassSubmission.findOne({classname: req.classname},(err, foundRecord)=>{
+                //     foundRecord.submission.push(submission);
+                // });
             })
             .finally(() => worker.terminate());
         });
