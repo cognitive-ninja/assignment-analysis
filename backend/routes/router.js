@@ -29,20 +29,26 @@ router.post('/upload', (req,res) => {
                 console.log(progress);
             })
             .then(result => {
-                res.send(result.text);
+                // res.send(result.text);
                 
-                // const submission = {
-                //     student : req.student_id,
-                //     answer  : {
-                //         q_id : req.qid,
-                //         text : result.text
-                //     }
-                // };
-                console.log(result);
+                const submission = {
+                    student : req.body.student_id,
+                    answer  : {
+                        q_id : req.qid,
+                        text : result.text
+                    }
+                };
+                // console.log(result);
                 // Store the result to database.
-                // ClassSubmission.findOne({classname: req.classname},(err, foundRecord)=>{
-                //     foundRecord.submission.push(submission);
-                // });
+                ClassSubmission.findOne({classname: req.body.classname},(err, foundRecord)=>{
+                    if(err)
+                        return res.status(500).send({
+                            message: err.message || "Couldn't add submission to database"
+                        });
+                    foundRecord.submission.push(submission);
+                    foundRecord.save();
+                    res.send(submission);
+                });
             })
             .finally(() => worker.terminate());
         });
@@ -52,7 +58,7 @@ router.post('/upload', (req,res) => {
 //Route for getting similairty of two files.// Not required for actual application.
 router.get('/getsim',(req, res)=>{
     const degree = get_similarity();
-    res.send("The similarity degree :" + degree);
+    res.json(degree);
 });
 
 module.exports = router;
