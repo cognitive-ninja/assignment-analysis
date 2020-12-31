@@ -4,11 +4,15 @@ const User = require('./User');
 
 const ClassSchema = mongoose.Schema({
     classname   : String,
-    teacher     : [String],
-    student     : [String],
+    teacher     : {
+        type : [String]
+    },
+    student     : {
+        type : [String]
+    },
     classSubmission : [{
         assignment_no : Number,
-        submission    : String
+        submission    : mongoose.Types.ObjectId
     }]
 });
 
