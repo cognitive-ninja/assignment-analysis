@@ -11,6 +11,7 @@ import LeftDrawer from './LeftDrawer';
 import { Link } from 'react-router-dom';
 import {AuthContext} from '../AuthContext';
 import Button from '@material-ui/core/Button';
+import { IsTeacherContext } from '../IsTeacherContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,7 +49,7 @@ export default function MenuAppBar() {
   const open = Boolean(anchorEl);
 
   const [auth, setAuth] = useContext(AuthContext);
-
+  const [isTeacher] = useContext(IsTeacherContext);
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -112,8 +113,8 @@ export default function MenuAppBar() {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/profile">Profile</MenuItem>
-                <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/create">Create Classroom</MenuItem>
-                <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/join">Join Classroom</MenuItem>
+                {isTeacher && <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/create">Create Classroom</MenuItem>}
+                {!isTeacher && <MenuItem onClick={handleClose} component={ Link } to="/assignment-analysis/join">Join Classroom</MenuItem>}
                 <MenuItem onClick={handleAuthClose} component={ Link } to="/assignment-analysis/">Sign Out</MenuItem>
               </Menu>
 

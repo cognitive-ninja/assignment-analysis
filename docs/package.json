@@ -19,6 +19,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-text-typist": "^1.0.5",
+    "semantic-ui-react": "^2.0.1",
     "tesseract.js": "^2.1.4",
     "web-vitals": "^0.2.4"
   },
