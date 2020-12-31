@@ -1,3 +1,5 @@
+const { route } = require('./router');
+
 const express   = require('express'),
     router      = express.Router(),
     Class       = require('../models/Class'),
@@ -5,7 +7,7 @@ const express   = require('express'),
 
 // 1. Route for creating class database.
 router.post('/class', (req, res)=> {
-    Class.create(req.class,(err, createdClass)=>{
+    Class.create(req.body.class,(err, createdClass)=>{
         if(err)
             return res.status(500).send({
                 message: err.message || "Couldn't create database for user"
@@ -35,4 +37,28 @@ router.delete('/class', (req, res)=>{
     });
 });
 
+// 5. Add student to class
+
+// 6. Remove student from class
+
+// 7. Add assignment 
+router.post("/assignment",(req, res)=>{
+    ClassSubmission.create(req.body.assignment,(err, createdAssignment)=>{
+        if(err)
+            return res.status(500).send({
+                message: err.message || "Couldn't create assignment in the database"
+            });
+            Class.findOne({classname:req.body.assignment.classname},(err,foundClass)=>{
+                if(err)
+                    return res.status(500).send({
+                        message: err.message || "Couldn't find the class in the database"
+                    }); 
+                foundClass.classSubmission.push({assignment_no:req.body.assignment.assignment_no,submission:createdAssignment._id});
+            });
+        return res.status(200).json({
+            message: "Created assignment",
+            object: createdAssignment
+        });
+    });
+});
 module.exports = router;
