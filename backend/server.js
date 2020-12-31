@@ -10,6 +10,8 @@ const express   = require('express'),
 //Configurations:
 //Rendering
 app.set("view engine","ejs");
+//Parsing
+app.use(express.json());
 //Routing
 app.use(routes);
 app.use(userRoutes);
