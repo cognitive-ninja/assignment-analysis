@@ -20,7 +20,7 @@ router.post('/user', (req, res)=>{
 // 3. Route for updating user profile
 
 // 4. Route for deleting a user.
-router.delete('/user', (req, res)=>{
+router.delete('/user/:id', (req, res)=>{
     User.findOneAndDelete({username:req.username},(err=>{
         if(err)
             return res.status(500).send({
