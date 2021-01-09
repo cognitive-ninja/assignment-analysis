@@ -7,12 +7,15 @@ const express   = require('express'),
     classRoutes = require('./routes/classRoutes'),
     variables   = require('./env-variables');
 
+var cors = require('cors')
+
 //Configurations:
 //Rendering
 app.set("view engine","ejs");
 //Parsing
 app.use(express.json());
 //Routing
+app.use(cors())
 app.use(routes);
 app.use(userRoutes);
 app.use(classRoutes);
