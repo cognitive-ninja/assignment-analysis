@@ -1,20 +1,20 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
+import React,{useContext} from 'react';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-// import Link from '@material-ui/core/Link';
 import { Link } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import backImage from '../images/home_backg_2.jpg';
-import SignUp from './SignUp';
+import { useHistory } from 'react-router-dom';
+import axios from 'axios';
+import swal from 'sweetalert';
+import {AuthContext} from './AuthContext';
+import {IsTeacherContext} from './IsTeacherContext';
+
 
 function Copyright() {
   return (
@@ -65,8 +65,45 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 export default function SignIn() {
   const classes = useStyles();
+  const history= useHistory();
+  
+  const [, setAuth] = useContext(AuthContext);
+  const [, setIsTeacher] = useContext(IsTeacherContext);
+  
+  function onSubmit(e) {
+    
+    e.preventDefault();
+    var form = document.getElementById('signup_form');
+    var data = new FormData(form);
+    const entries = data.entries();
+    const userData = Object.fromEntries(entries);
+    
+    axios.post('http://localhost:5000/user/', userData)
+    .then(res => { 
+      if(res.status === 200)
+      {
+        setAuth(true);
+        setIsTeacher(true);
+        history.push("/assignment-analysis/"); 
+      }
+    }).catch(res => {
+        if(res.status !== 200)
+        {
+          swal("Already account exists with this Email-ID")
+          .then((value) => {
+            if(value)
+            {
+              history.push("/assignment-analysis/");
+            }
+          });
+        }
+    });
+
+}
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -77,7 +114,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign Up
           </Typography>
-          <form className={classes.form} method="post" action="/assignment-analysis/signin">
+          <form className={classes.form} name="signup_form" id="signup_form" onSubmit={onSubmit}>
           <div className="d-flex flex-row">
             <div className="p-2 flex-fill">
             <TextField
@@ -85,10 +122,10 @@ export default function SignIn() {
               margin="normal"
               required
               autoFocus
-              name="firstname"
+              name="first_name"
               label="First Name"
               type="text"
-              id="firstname"
+              id="first_name"
               style={{width:'260px', marginRight:'42px'}}
             />
             {/* </div>
@@ -98,10 +135,10 @@ export default function SignIn() {
               margin="normal"
               required
             //   fullWidth
-              name="lastname"
+              name="last_name"
               label="Last Name"
               type="text"
-              id="lastname"
+              id="last_name"
               style={{width:'260px'}}
             />
             </div>
@@ -140,10 +177,12 @@ export default function SignIn() {
               variant="contained"
               style={{ background: '#2E3B55' }}
               className={classes.submit}
+              // onClick={}
             >
               
               <div style={{color:"white"}}>Sign Up</div>
             </Button>
+            </form>
             {/* <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
@@ -159,7 +198,7 @@ export default function SignIn() {
             <Box mt={5}>
               <Copyright />
             </Box>
-          </form>
+          
         </div>
       </Grid>
     </Grid>
