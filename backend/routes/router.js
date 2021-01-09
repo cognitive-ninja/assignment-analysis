@@ -2,8 +2,10 @@ const express   = require('express'),
     router      = express.Router(),
     multer      = require('../middleware/multer-config'),
     fs          = require('fs'),
-    { TesseractWorker } = require('tesseract.js'),
-    worker      = new TesseractWorker(),
+    { createWorker } = require('tesseract.js'),
+    worker      = createWorker({
+        logger: m => console.log(m),
+      }),
     get_similarity = require('../controllers/string-similarity'),
     ClassSubmission = require('../models/ClassSubmission');
 
@@ -23,34 +25,40 @@ router.post('/upload', (req,res) => {
             if(err)
                 return console.log('This is your error', err);
             
-            worker
-            .recognize(data, "eng", {tessjs_create_pdf: "1"})
-            .progress(progress => {
-                console.log(progress);
-            })
-            .then(result => {
-                // res.send(result.text);
+            const submission = {
+                student : req.body.student_id,
+                answer  : {
+                    q_id : req.qid,
+                    text : ""
+                }
+            };
+
+            (async () => {
+                await worker.load();
+                await worker.loadLanguage('eng');
+                await worker.initialize('eng');
+                const { data: { text } } = await worker.recognize(data);
                 
-                const submission = {
-                    student : req.body.student_id,
-                    answer  : {
-                        q_id : req.qid,
-                        text : result.text
-                    }
-                };
+                submission.answer.text=text;
+                // console.log(text);
+                res.send(text);
+                await worker.terminate();
+                })();
+
+           
+                
                 // console.log(result);
                 // Store the result to database.
-                ClassSubmission.findOne({classname: req.body.classname},(err, foundRecord)=>{
-                    if(err)
-                        return res.status(500).send({
-                            message: err.message || "Couldn't add submission to database"
-                        });
-                    foundRecord.submission.push(submission);
-                    foundRecord.save();
-                    res.send(submission);
-                });
-            })
-            .finally(() => worker.terminate());
+                // ClassSubmission.findOne({classname: req.body.classname},(err, foundRecord)=>{
+                //     if(err)
+                //         return res.status(500).send({
+                //             message: err.message || "Couldn't add submission to database"
+                //         });
+                //     foundRecord.submission.push(submission);
+                //     foundRecord.save();
+                //     res.send(submission);
+                // });
+            
         });
     });
 });
