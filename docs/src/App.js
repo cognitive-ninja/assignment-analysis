@@ -2,7 +2,7 @@
 import React from "react";
 import './App.css';
 import ClassCard from './Components/ClassCard';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import SubjectCard from './Components/SubjectCard';
 import PostAssignment from './Components/PostAssignment';
 import SubmitAssignment from './Components/SubmitAssignment';
@@ -11,7 +11,7 @@ import Navbar from './Components/Layout/Navbar'
 import SignIn from "./Components/SignIn";
 import SignUp from './Components/SignUp';
 import {AuthProvider} from './Components/AuthContext';
-import createBrowserHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 import {IsTeacherProvider} from './Components/IsTeacherContext';
 import ViewAssignments from "./Components/ViewAssignments";
 import Profile from "./Components/Profile";

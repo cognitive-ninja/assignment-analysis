@@ -1,15 +1,11 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-// import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import backimg from '../images/new_sub_back_3.jpg';
 import { motion } from 'framer-motion';
-// import { Frame } from 'framer';
 
-import {IsTeacherContext} from './IsTeacherContext';
-// import PostAssignment from './PostAssignment';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -49,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
   
   export default function SubjectCard() {
     
-    const [isTeacher, setIsTeacher] = useContext(IsTeacherContext);
     const classes = useStyles();
     return (
     <>
@@ -62,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
               Subject Teacher: Mr. A. A. Powar
             </Typography>  
             <Link to='/assignment-analysis/viewAll/classes/FYCSE/Chemistry' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>
-            {/* {!isTeacher && <Link to='/assignment-analysis/submitAssignment/classes/FYCSE/Chemistry' className={classes.link}><Button variant="contained" size="large" className={classes.openButton}>Open</Button></Link>} */}
+
         </motion.Card>
         <motion.Card className={classes.root} whileTap={{ scale: 0.95 }} whileHover={{ scale : 0.95}}>
             

@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
-  const [auth, setAuth] = useContext(AuthContext);
+  const [, setAuth] = useContext(AuthContext);
   
   const [isTeacher, setIsTeacher] = useContext(IsTeacherContext);
   // const setAuth = React.useState(false);
