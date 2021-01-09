@@ -95,7 +95,7 @@ export default function SignIn() {
         {
           if( res.status === 404)
           {
-            swal("Sorry but currently our server is sleeping...\nTry after some time");
+            swal("Sorry but currently our server is sleeping...\nTry after some time...");
           }
           else
           {
