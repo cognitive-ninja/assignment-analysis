@@ -93,13 +93,21 @@ export default function SignIn() {
     }).catch(res => {
         if(res.status !== 200)
         {
-          swal("Already account exists with this Email-ID")
-          .then((value) => {
-            if(value)
-            {
-              history.push("/assignment-analysis/");
-            }
-          });
+          if( res.status === 404)
+          {
+            swal("Sorry but currently our server is sleeping...\nTry after some time");
+          }
+          else
+          {
+            swal("Already account exists with this Email-ID")
+              .then((value) => {
+                if(value)
+                {
+                  history.push("/assignment-analysis/");
+                }
+              }
+            );
+          }
         }
     });
 
