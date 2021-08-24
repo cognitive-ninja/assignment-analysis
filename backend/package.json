@@ -9,7 +9,7 @@
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "mongoose": "^5.11.11",
     "multer": "^1.4.2",
     "sentence-similarity": "^3.0.2",
